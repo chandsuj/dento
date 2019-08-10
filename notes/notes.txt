@@ -1,0 +1,55 @@
+create database dental;
+use dental;
+create table customer(date date not null,regno int primary key auto_increment not null,firstn varchar(20) not null CHECK (firstn <> '' and firstn <>'First Name'),lastn varchar(20) not null CHECK (lastn <> '' and lastn <> 'Last Name'),age int not null, contno long not null CHECK (contno <> ''),addr varchar(30) not null CHECK (addr <> '' and addr <> 'Address'));
+create table activity(regno int not null, date date not null, tname varchar(30) not null CHECK (tname <> ''),dname varchar(30) not null CHECK (dname <> ''),price int,payment varchar(10),remark varchar(200));
+create table treatment (tname varchar(30) not null CHECK (tname <> ''));
+create table doctor(dname varchar(30) not null CHECK (dname <> ''));
+
+
+
+
+to do
+//	custform close open front refreshed
+//	window relative position
+//	enter button to submit
+//	table :dont let to select multiple row
+//	sqlIntegritiyException for duplicate regno
+//	print option
+---	row highlight for done payment
+
+ treatment/doctor scroll pane:
+ serial number to activities and other
+ paid and remaining amount
+	
+	
+	
+
+
+	
+	
+//today data
+SELECT *
+FROM activity
+WHERE DAY(date) = DAY(CURRENT_DATE());
+
+//yestertay data
+SELECT *
+FROM activity
+WHERE DAY(date) = DAY(CURRENT_DATE())-1;
+
+
+//this month data	
+SELECT *
+FROM activity
+WHERE MONTH(date) = MONTH(CURRENT_DATE())
+AND YEAR(date) = YEAR(CURRENT_DATE());
+
+//this year data
+SELECT *
+FROM activity
+WHERE YEAR(date) = YEAR(CURRENT_DATE());
+
+
+
+//last entered days	  
+SELECT * FROM activity WHERE date >= ( CURDATE() - INTERVAL 10 DAY );

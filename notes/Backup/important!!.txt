@@ -1,0 +1,4 @@
+-mysqld should be close
+-dental folder be empty
+-copy .frm files
+-then use "mysql dental < backup-file.sql -u root -p

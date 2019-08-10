@@ -1,0 +1,33 @@
+Customer Profile
+	date(today)
+    regno (primary key)
+    firstn (varchar)
+    lastn(varchar)
+	age(number)
+    contno(number)
+    addr (varchar)
+	
+Treatment
+	tname(varchar)
+	
+Doctor
+	dname(varchar)
+
+    
+Customer activity
+	customer.regno(regno)
+	
+	date
+	treatment.name(tname)
+	doctor.name(dname)
+	price
+	payment
+	remarks
+
+
+    
+Backup
+
+
+
+problem:
