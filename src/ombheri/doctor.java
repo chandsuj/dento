@@ -175,9 +175,15 @@ public class doctor extends javax.swing.JFrame {
         JPanel addPanel = new JPanel();
         addPanel.add(new JLabel("Doctor:"));
         addPanel.add(docText);
+        
 
         int result = JOptionPane.showConfirmDialog(null, addPanel, 
                  "Add Doctor Name", JOptionPane.OK_CANCEL_OPTION);
+        String doc = docText.getText();
+         if(doc.length() == 0 || !doc.matches("[a-zA-Z]+")){
+            JOptionPane.showMessageDialog(null, "Invalid doctor name.");
+            return;
+        }
         
         if (result == JOptionPane.OK_OPTION) {
             x=docText.getText();
@@ -220,9 +226,13 @@ public class doctor extends javax.swing.JFrame {
             editPanel.add(docText);
 
             int result = JOptionPane.showConfirmDialog(null, editPanel,"Edit", JOptionPane.OK_CANCEL_OPTION);
-        
-            
-            if (result == JOptionPane.OK_OPTION) {
+             String doc = docText.getText();
+                if(doc.length() == 0 || !doc.matches("[a-zA-Z]+")){
+                    JOptionPane.showMessageDialog(null, "Invalid doctor name.");
+                    btnEditActionPerformed(null);
+                    return;
+                }
+                if (result == JOptionPane.OK_OPTION) {
                 x=docText.getText();
                 String sqlDoc="update doctor set dname='"+x+"' where dname='"+docVal+"';";
                 System.out.println(sqlDoc);

@@ -489,13 +489,13 @@ public class custForm extends javax.swing.JFrame {
         }
         
         String fn = firstn.getText().trim();
-        if(fn.length() == 0){
+        if(fn.length() == 0 || !fn.matches("[a-zA-Z]+")){
             JOptionPane.showMessageDialog(null, "Invalid first name.");
             return;
         }
         
         String ln = lastn.getText().trim();
-        if(ln.length() == 0){
+        if(ln.length() == 0 || !ln.matches("[a-zA-Z]+")){
             JOptionPane.showMessageDialog(null, "Invalid last name.");
             return;
         }
